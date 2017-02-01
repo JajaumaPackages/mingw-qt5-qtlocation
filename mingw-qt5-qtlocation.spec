@@ -17,7 +17,7 @@
 
 Name:           mingw-qt5-%{qt_module}
 Version:        5.6.0
-Release:        1%{?pre:.%{pre}}%{?snapshot_date:.git%{snapshot_date}.%{snapshot_rev}}%{?dist}
+Release:        2%{?pre:.%{pre}}%{?snapshot_date:.git%{snapshot_date}.%{snapshot_rev}}%{?dist}
 Summary:        Qt5 for Windows - QtLocation component
 
 License:        GPLv3 with exceptions or LGPLv2 with exceptions
@@ -43,11 +43,9 @@ BuildArch:      noarch
 # depends on qtlocation which itself depends on qtquick1
 BuildRequires:  mingw32-filesystem >= 96
 BuildRequires:  mingw32-qt5-qtbase >= 5.6.0
-BuildRequires:  mingw32-qt5-qtquick1
 
 BuildRequires:  mingw64-filesystem >= 96
 BuildRequires:  mingw64-qt5-qtbase >= 5.6.0
-BuildRequires:  mingw64-qt5-qtquick1
 
 
 %description
@@ -160,6 +158,9 @@ find $RPM_BUILD_ROOT%{mingw64_prefix} | grep .dll | grep -v .dll.a | sed s@"^$RP
 
 
 %changelog
+* Wed Feb 01 2017 Jajauma's Packages <jajauma@yandex.ru> - 5.6.0-2
+- Don't require qtquick1 for building
+
 * Thu Apr  7 2016 Erik van Pienbroek <epienbro@fedoraproject.org> - 5.6.0-1
 - Update to 5.6.0
 
